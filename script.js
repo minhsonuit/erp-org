@@ -9,7 +9,7 @@ OrgChart.templates.isla.defs =
         <feMerge><feMergeNode in="shadowMatrixOuter1" /><feMergeNode in="SourceGraphic" /></feMerge>
     </filter>`;
 
-OrgChart.templates.isla.size = [180, 120];
+OrgChart.templates.isla.size = [200, 140];
 
 OrgChart.templates.isla.node = 
     `<rect filter="url(#isla-shadow)" x="0" y="20" rx="7" ry="7" height="100" width="180" fill="#FFF" stroke-width="1" stroke="#039BE5"></rect>
@@ -25,9 +25,9 @@ OrgChart.templates.isla.ripple = {
 };
 
 OrgChart.templates.isla.field_0 = 
-    `<text data-width="120" style="font-size: 12px;" fill="#fff" x="90" y="90" text-anchor="middle">{val}</text>`;
+    `<text data-width="140" style="font-size: 12px;" fill="#fff" x="90" y="90" text-anchor="middle">{val}</text>`;
 OrgChart.templates.isla.field_1 = 
-    `<text data-width="180" style="font-size: 13px;" fill="#039BE5" x="90" y="64" text-anchor="middle">{val}</text>`;
+    `<text data-width="200" style="font-size: 13px;" fill="#039BE5" x="90" y="64" text-anchor="middle">{val}</text>`;
 
 OrgChart.templates.isla.img_0 = 
     `<clipPath id="{randId}">

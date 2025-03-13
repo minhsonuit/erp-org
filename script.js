@@ -58,8 +58,8 @@ let chart = new OrgChart(document.getElementById("tree"), {
     enableAI: false,    
     enableDragDrop: true,
     nodeBinding: {
-        field_0: "title",
-        field_1:"name",
+        field_0: "name",
+        field_1:"title",
         img_0:"image"
     },
     nodes: [

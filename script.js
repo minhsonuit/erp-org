@@ -69,7 +69,7 @@ let chart = new OrgChart(document.getElementById("tree"), {
         { id: 4, pid: 2, name: "Nguyễn Hoàng Hiệp",title:"Senior ERP Developer" ,image: "https://cdn-icons-png.flaticon.com/512/2922/2922510.png" },
         { id: 5, pid: 2, name: "Phan Nguyên Trung",title:"Senior ERP Developer" ,image: "https://cdn-icons-png.flaticon.com/512/2922/2922510.png" },
         { id: 6, pid: 2, name: "Trần Thị Phụng",title:"Senior ERP Developer",image:"https://cdn-icons-png.flaticon.com/512/2922/2922561.png" },
-        { id: 7, pid: 3, name: "Võ Minh Thái",title:"Associate ERP Manager",image:"https://cdn-icons-png.flaticon.com/512/2922/2922561.png" },
+        { id: 7, pid: 3, name: "Võ Minh Thái",title:"Associate ERP Manager",image:"https://cdn-icons-png.flaticon.com/512/2922/2922510.png" },
         { id: 8, pid: 3, name: "Lương Đỗ Cẩm Phụng",title:"Senior ERP Analyst",image:"https://cdn-icons-png.flaticon.com/512/2922/2922561.png" },
         { id: 9, pid: 3, name: "Mai Quang Khôi",title:"Senior ERP Analyst" ,image: "https://cdn-icons-png.flaticon.com/512/2922/2922510.png" },
         { id: 10, pid: 3, name: "Nguyễn Thị Quỳnh Như",title:"Senior ERP Analyst",image:"https://cdn-icons-png.flaticon.com/512/2922/2922561.png" },

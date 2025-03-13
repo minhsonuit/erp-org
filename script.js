@@ -27,7 +27,7 @@ OrgChart.templates.isla.ripple = {
 OrgChart.templates.isla.field_0 = 
     `<text data-width="120" style="font-size: 12px;" fill="#fff" x="90" y="90" text-anchor="middle">{val}</text>`;
 OrgChart.templates.isla.field_1 = 
-    `<text data-width="160" style="font-size: 13px;" fill="#039BE5" x="90" y="64" text-anchor="middle">{val}</text>`;
+    `<text data-width="180" style="font-size: 13px;" fill="#039BE5" x="90" y="64" text-anchor="middle">{val}</text>`;
 
 OrgChart.templates.isla.img_0 = 
     `<clipPath id="{randId}">
@@ -55,7 +55,7 @@ let chart = new OrgChart(document.getElementById("tree"), {
     template:"isla",
     mouseScrool: OrgChart.action.scroll,
     enableSearch: false,
-    enableAI: true,    
+    enableAI: false,    
     enableDragDrop: true,
     nodeBinding: {
         field_0: "title",

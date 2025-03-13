@@ -58,12 +58,12 @@ let chart = new OrgChart(document.getElementById("tree"), {
     enableAI: true,    
     enableDragDrop: true,
     nodeBinding: {
-        field_0: "name",
-        field_1:"title",
+        field_0: "title",
+        field_1:"name",
         img_0:"image"
     },
     nodes: [
-        { id: 1, name: "Nguyễn Đoàn Khánh", title:"ERP Director",image: "https://cdn-icons-png.flaticon.com/512/2922/2922510.png" },
+        { id: 1, name: "Nguyễn Đoàn Khánh", title:"IT Director",image: "https://cdn-icons-png.flaticon.com/512/2922/2922510.png" },
         { id: 2, pid: 1, name: "Võ Minh Sơn", title:"ERP Engineering Manager" ,image: "https://cdn-icons-png.flaticon.com/512/2922/2922510.png" },
         { id: 3, pid: 1, name: "Phan Bảo Phượng",title:"ERP Manager",image:"https://cdn-icons-png.flaticon.com/512/2922/2922561.png" },
         { id: 4, pid: 2, name: "Nguyễn Hoàng Hiệp",title:"Senior ERP Developer" ,image: "https://cdn-icons-png.flaticon.com/512/2922/2922510.png" },

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP Plan</title>
+    <style>
+        .left {
+            text-align: left !important;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+            position: relative;
+            overflow: visible;
+        }
+        th {
+            background-color: #0059b3;
+            color: white;
+        }
+        .progress-bar {
+            height: 20px;
+            background-color: #ddd;
+            position: relative;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .progress-plan {
+            height: 100%;
+            background-color: #ff9999;
+            position: absolute;
+            left: 0;
+            border-radius: 10px;
+        }
+        .progress-actual {
+            height: 100%;
+            background-color: #4caf50;
+            position: absolute;
+            left: 0;
+            border-radius: 10px;
+        }
+        .tooltip {
+            visibility: hidden;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 4px 6px;
+            border-radius: 4px;
+            position: absolute;
+            bottom: 130%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+            z-index: 1000;
+        }
+        .progress-bar:hover .tooltip, .tooltip-container:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+        .sub-feature {
+            font-size: 14px;
+            font-style: italic;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h2>ERP Feature & Plan</h2>
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">Feature & Plan</th>
+                <th rowspan="2">Progress</th>
+                <th colspan="4">2025</th>
+                <th colspan="4">2026</th>
+            </tr>
+            <tr>
+                <th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th>
+                <th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th>
+            </tr>
+        </thead>
+        <tbody id="taskTable"></tbody>
+    </table>
+
+    <script>
+        const tasks = [
+            { name: 'Optimize code AX', subFeatures: ['Refactor SQL Queries', 'Improve Indexing'], start: '2025-Q1', progress: 15, plan: { "2025-Q1": 30, "2025-Q2": 20, "2025-Q3": 20, "2025-Q4": 20, "2026-Q1": 10 }, actual: { "2025-Q1": 85 }},
+            { name: 'Optimize BI query', subFeatures: ['Enhance Data Warehouse', 'Query Optimization'], start: '2025-Q1', progress: 25, plan: { "2025-Q1": 50, "2025-Q2": 25, "2025-Q3": 25 }, actual: { "2025-Q1": 40 }},
+            { name: 'Cut off data', subFeatures: ['Archive Old Transactions', 'Cleanup Logs'], start: '2025-Q2', progress: 0, plan: { '2025-Q2': 50 }, actual: { '2025-Q2': 0 } },
+            { name: 'Customer service', subFeatures: ['Live Chat', 'AI Chatbot'], start: '2025-Q3', progress: 0, plan: { '2025-Q3': 50 }, actual: { '2025-Q3': 0 } },
+            { name: 'Giftcard service', subFeatures: ['E-Giftcards', 'Balance Tracking'], start: '2025-Q3', progress: 0, plan: { '2025-Q3': 50 }, actual: { '2025-Q3': 0 } },
+            { name: 'mPos', subFeatures: ['Mobile Payment', 'Offline Mode'], start: '2025-Q1', progress: 70, plan: { "2025-Q1": 70, "2025-Q2": 30 }, actual: { "2025-Q1": 60 }}
+        ];
+
+        const tableBody = document.getElementById('taskTable');
+        tasks.forEach(task => {
+            const row = document.createElement('tr');
+            let quarterCells = '';
+
+            ['2025-Q1', '2025-Q2', '2025-Q3', '2025-Q4', '2026-Q1', '2026-Q2', '2026-Q3', '2026-Q4'].forEach(q => {
+                if (task.plan[q]) {
+                    const plan = task.plan[q];
+                    const actual = task.actual[q] || 0;
+                    quarterCells += `<td class="tooltip-container">
+                        <div class="progress-bar">
+                            <div class="progress-plan" style="width: 100%"></div>
+                            <div class="progress-actual" style="width: ${actual}%"></div>
+                            <span class="tooltip">Quý ${q.split('-')[1]}: Kế hoạch ${plan}%, Thực tế ${actual}%</span>
+                        </div>
+                    </td>`;
+                } else {
+                    quarterCells += `<td></td>`;
+                }
+            });
+
+            row.innerHTML = `
+                <td class="left">${task.name}<br><span class="sub-feature">${task.subFeatures.join(', ')}</span></td>
+                <td class="tooltip-container">
+                    <div class="progress-bar">
+                        <div class="progress-actual" style="width: ${task.progress}%">${task.progress}%</div>
+                        <span class="tooltip">Hoàn thành ${task.progress}%</span>
+                    </div>
+                </td>
+                ${quarterCells}
+            `;
+            tableBody.appendChild(row);
+        });
+    </script>
+</body>
+</html>

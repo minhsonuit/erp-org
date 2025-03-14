@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP Plan</title>
+    <style>
+        .left { text-align: left !important; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th { background-color: #0059b3; color: white; }
+        tbody tr:nth-child(odd) { background-color: #f2f2f2; }
+        tbody tr:hover { background-color: #cce7ff; }
+        .progress-bar {
+            height: 20px;
+            background-color: #ddd;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 10px;
+            position: relative;
+        }
+        .progress-plan { height: 100%; background-color: #ff9999; position: absolute; left: 0; border-radius: 10px; }
+        .progress-actual { height: 100%; background-color: #4caf50; position: absolute; left: 0; border-radius: 10px; }
+        .sub-feature { font-style: italic; color: #555; padding-left: 20px; }
+        .tooltip {
+            visibility: hidden;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 4px 6px;
+            border-radius: 4px;
+            position: absolute;
+            bottom: 130%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+            z-index: 1000;
+        }
+        .progress-bar:hover .tooltip, .tooltip-container:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <h2>improvements ERP plan</h2>
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2" style="width: 40%;">Feature & Plan</th>
+                <th rowspan="2">Progress</th>
+                <th colspan="4">2025</th>
+               
+            </tr>
+            <tr>
+                <th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th>
+               
+            </tr>
+        </thead>
+        <tbody id="taskTable"></tbody>
+    </table>
+    <script>
+        const tasks = [
+        
+            { name: 'Optimize code AX', start: '2025-Q1', progress: 15, plan: { "2025-Q1": 30, "2025-Q2": 20, "2025-Q3": 20, "2025-Q4": 20}, actual: { "2025-Q1": 85 }, 
+                subFeatures: [
+                    'Database Performance Monitoring',
+                    'Refactor database queries', 'Optimize X++ performance',
+                    'Optimize indexing strategy'
+                ]},
+            { name: 'Optimize BI query', start: '2025-Q1', progress: 25, plan: { "2025-Q1": 50, "2025-Q2": 25, "2025-Q3": 25 }, actual: { "2025-Q1": 40 }, 
+           
+            subFeatures: [
+                "Identify Slow Queries and log execution time",
+                "Analyze Query Execution Plan to find bottlenecks",
+                "Monitor Resource Utilization (CPU, RAM, I/O) during query execution",
+                "Optimize Indexes for better query performance",
+                "Implement Table Partitioning to speed up data retrieval",
+                "Use Materialized Views to cache precomputed results",
+                "Optimize Joins & Aggregations for complex BI queries",
+                "Reduce Redundant Queries to avoid unnecessary processing",
+                "Leverage Precomputed Data to reduce on-the-fly calculations",
+                "Implement Incremental Data Processing to handle only new data",
+                "Merge Old & New Data for more efficient BI calculations",
+                "Use Caching Strategies to store frequently accessed query results",
+                "Apply Query Hints & Execution Plans for SQL Engine tuning",
+                "Leverage Columnstore Indexes for high-performance data analysis",
+                "Optimize Temporary Tables & Common Table Expressions (CTEs)",
+                "Monitor Query Performance over Time and track improvements",
+                "Conduct Continuous Optimization Reviews for BI Queries"
+            ]
+
+
+},
+            { name: 'Cutoff data', start: '2025-Q2', progress: 0, plan: { '2025-Q2': 50 ,'2025-Q3': 50 }, actual: { '2025-Q2': 0,'2025-Q3': 0 }, 
+                subFeatures: [
+                    'Identify Data for Cutoff',
+                    'Implement partitioning',
+                    'Archive old transactions',
+                    'Purging Old Data from AX Database',
+                    "Provide API endpoints for external systems to access archived data",
+                    "Develop a user interface in AX 2012 to view archived data"]
+            },
+            {name: 'Price sync service for POS', start: '2025-Q2', progress: 0, plan: { '2025-Q2': 50 }, actual: { '2025-Q2': 0 },
+             subFeatures: 
+                [
+                    
+                    'Implement logic sync price service and push data to database of POS',
+                    
+                    'Implement logic get price update from pos']
+            },
+            { name: 'Giftcard service', start: '2025-Q3', progress: 0, plan: { '2025-Q3': 50 }, actual: { '2025-Q3': 0 },
+             subFeatures: 
+                [
+                    'Sync Master Data Setup from AX 2012',
+                    'Implement coupon issue logic',
+                    'Sync coupon data to AX 2012',
+                    'API coupon service for POS, MPOS, Ecom Systems']
+            },
+            { name: 'Customer Infomation', start: '2025-Q4', progress: 0, plan: { '2025-Q4': 100 }, actual: { '2025-Q4': 0 }, 
+                subFeatures: 
+                ['Design External Customer Information Service', 'Develop AX Data Sync Mechanism']},
+            
+            {name: 'Loyalty point service', start: '2025-Q4', progress: 0, plan: { '2025-Q4': 50 }, actual: { '2025-Q4': 0 },
+             subFeatures: 
+                [
+                    'Sync Master Data Setup from AX 2012',
+                    'Implement earn,redeem logic',
+                    'Sync data point to AX 2012',
+                    'API loyalty point service for POS, MPOS, Ecom Systems']},
+            
+            ];
+
+        const tableBody = document.getElementById('taskTable');
+        tasks.forEach(task => {
+            const row = document.createElement('tr');
+            let quarterCells = '';
+            ['2025-Q1', '2025-Q2', '2025-Q3', '2025-Q4'].forEach(q => {
+                if (task.plan[q]) {
+                    const plan = task.plan[q];
+                    const actual = task.actual[q] || 0;
+                    quarterCells += `<td>
+                        <div class='progress-bar'>
+                            <div class='progress-plan' style='width: 100%'></div>
+                            <div class='progress-actual' style='width: ${actual}%'></div>
+                            <span class="tooltip">Quý ${q.split('-')[1]}: Kế hoạch ${plan}%, Thực tế ${actual}%</span>
+                        </div>
+                    </td>`;
+                } else {
+                    quarterCells += `<td></td>`;
+                }
+            });
+
+            row.innerHTML = `
+                <td class='left'><strong>${task.name}</strong></td>
+                <td>
+                    <div class='progress-bar'>
+                        <div class='progress-actual' style='width: ${task.progress}%'>${task.progress}%</div>
+                    </div>
+                </td>
+                ${quarterCells}
+            `;
+            tableBody.appendChild(row);
+
+            task.subFeatures.forEach(subFeature => {
+                const subRow = document.createElement('tr');
+                subRow.innerHTML = `
+                    <td class='sub-feature left'>- ${subFeature}</td>
+                    <td></td>
+                    <td colspan='8'></td>
+                `;
+                tableBody.appendChild(subRow);
+            });
+        });
+    </script>
+</body>
+</html>

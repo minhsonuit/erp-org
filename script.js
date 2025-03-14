@@ -60,7 +60,8 @@ let chart = new OrgChart(document.getElementById("tree"), {
     nodeBinding: {
         field_0: "name",
         field_1:"title",
-        img_0:"image"
+        img_0:"image",
+       
     },
     nodes: [
         { id: 1, name: "Nguyễn Đoàn Khánh", title:"IT Director",image: "images/khanh.jpg" },
@@ -74,6 +75,35 @@ let chart = new OrgChart(document.getElementById("tree"), {
         { id: 9, pid: 3, name: "Mai Quang Khôi",title:"Senior ERP Analyst" ,image: "https://cdn-icons-png.flaticon.com/512/2922/2922510.png" },
         { id: 10, pid: 3, name: "Nguyễn Thị Quỳnh Như",title:"Senior ERP Analyst",image:"images/nhu.jpg" },
         { id: 11, pid: 3, name: "Võ Hoàng Phương Anh",title:"Senior ERP Analyst",image:"https://cdn-icons-png.flaticon.com/512/2922/2922561.png" }
-    ]
+    ],
+    editForm: {
+        buttons:  {
+            edit: {
+                icon: OrgChart.icon.edit(24,24,'#fff'),
+                text: 'Edit',
+                hideIfEditMode: true,
+                hideIfDetailsMode: false
+            },
+            share: {
+                icon: OrgChart.icon.share(24,24,'#fff'),
+                text: 'Share'
+            },
+            pdf: {
+                icon: OrgChart.icon.pdf(24,24,'#fff'),
+                text: 'Save as PDF'
+            },
+            remove: {
+                icon: OrgChart.icon.remove(24,24,'#fff'),
+                text: 'Remove',
+                hideIfDetailsMode: true
+            }
+        },
+        nodeBinding: {
+            field_0: "name",
+            field_1: "title",
+            img_0: "image"
+        },
+        photoBinding: "image",
+    }      
 });
 

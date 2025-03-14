@@ -63,16 +63,16 @@ let chart = new OrgChart(document.getElementById("tree"), {
         img_0:"image"
     },
     nodes: [
-        { id: 1, name: "Nguyễn Đoàn Khánh", title:"IT Director",image: "https://cdn-icons-png.flaticon.com/512/2922/2922510.png" },
-        { id: 2, pid: 1, name: "Võ Minh Sơn", title:"ERP Engineering Manager" ,image: "https://cdn-icons-png.flaticon.com/512/2922/2922510.png" },
-        { id: 3, pid: 1, name: "Phan Bảo Phượng",title:"ERP Manager",image:"https://cdn-icons-png.flaticon.com/512/2922/2922561.png" },
-        { id: 4, pid: 2, name: "Nguyễn Hoàng Hiệp",title:"Senior ERP Developer" ,image: "https://cdn-icons-png.flaticon.com/512/2922/2922510.png" },
-        { id: 5, pid: 2, name: "Phan Nguyên Trung",title:"Senior ERP Developer" ,image: "https://cdn-icons-png.flaticon.com/512/2922/2922510.png" },
-        { id: 6, pid: 2, name: "Trần Thị Phụng",title:"Senior ERP Developer",image:"https://cdn-icons-png.flaticon.com/512/2922/2922561.png" },
-        { id: 7, pid: 3, name: "Võ Minh Thái",title:"Associate ERP Manager",image:"https://cdn-icons-png.flaticon.com/512/2922/2922510.png" },
-        { id: 8, pid: 3, name: "Lương Đỗ Cẩm Phụng",title:"Senior ERP Analyst",image:"https://cdn-icons-png.flaticon.com/512/2922/2922561.png" },
+        { id: 1, name: "Nguyễn Đoàn Khánh", title:"IT Director",image: "https://s120-ava-talk.zadn.vn/4/b/a/7/9/120/5af122bef12edd35e6b697dc26fe6814.jpg" },
+        { id: 2, pid: 1, name: "Võ Minh Sơn", title:"ERP Engineering Manager" ,image: "https://media.licdn.com/dms/image/v2/C5603AQFkHQXFuNkDIA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1620348592407?e=1747267200&v=beta&t=3dZQP-ubEq4JF4SuAnQFbMKXkbSNKvwF7WIfEU-fv3k" },
+        { id: 3, pid: 1, name: "Phan Bảo Phượng",title:"ERP Manager",image:"https://media.licdn.com/dms/image/v2/C5103AQGC1ui555phvQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1539223274586?e=1747267200&v=beta&t=-wkXgYXSsxn3g-d89aYtJzusY7fI5DRPMECNYDwSUq0" },
+        { id: 4, pid: 2, name: "Nguyễn Hoàng Hiệp",title:"Senior ERP Developer" ,image: "https://s120-ava-talk.zadn.vn/6/8/4/6/10/120/9e4700bd4b0f3125716c6da0af468396.jpg" },
+        { id: 5, pid: 2, name: "Phan Nguyên Trung",title:"Senior ERP Developer" ,image: "https://s120-ava-talk.zadn.vn/7/e/0/3/2/120/320c495ca3ac0f09f7f1ebe3ba9d71d7.jpg" },
+        { id: 6, pid: 2, name: "Trần Thị Phụng",title:"Senior ERP Developer",image:"https://media.licdn.com/dms/image/v2/C5603AQGxAKKZoX0Tbw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1645492564561?e=1747267200&v=beta&t=u8q_RDg1PJdWowYnUW46cvk8WyTvNIH8sLUXIoCwPjU" },
+        { id: 7, pid: 3, name: "Võ Minh Thái",title:"Associate ERP Manager",image:"https://media.licdn.com/dms/image/v2/D5603AQH-wfbc2C1Wow/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1706846170399?e=1747267200&v=beta&t=WZKg7iFSPg5YfJ8tQFvqtnN1TFyQqi9apCvEcEihdG4" },
+        { id: 8, pid: 3, name: "Lương Đỗ Cẩm Phụng",title:"Senior ERP Analyst",image:"https://s120-ava-talk.zadn.vn/d/5/5/7/15/120/07d3bc132e377832ecf0ae360c014bae.jpg" },
         { id: 9, pid: 3, name: "Mai Quang Khôi",title:"Senior ERP Analyst" ,image: "https://cdn-icons-png.flaticon.com/512/2922/2922510.png" },
-        { id: 10, pid: 3, name: "Nguyễn Thị Quỳnh Như",title:"Senior ERP Analyst",image:"https://cdn-icons-png.flaticon.com/512/2922/2922561.png" },
+        { id: 10, pid: 3, name: "Nguyễn Thị Quỳnh Như",title:"Senior ERP Analyst",image:"https://s120-ava-talk.zadn.vn/9/8/0/8/5/120/38600228a177c18e916dadc0aae03807.jpg" },
         { id: 11, pid: 3, name: "Võ Hoàng Phương Anh",title:"Senior ERP Analyst",image:"https://cdn-icons-png.flaticon.com/512/2922/2922561.png" }
     ]
 });
